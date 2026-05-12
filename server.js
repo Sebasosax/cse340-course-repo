@@ -12,6 +12,7 @@ const app = express();
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'src/views'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', async (req, res) => {
     const title = 'Home';
@@ -26,6 +27,11 @@ app.get('/organizations', async (req, res) => {
 app.get('/projects', async (req, res) => {
     const title = 'Service Projects';
     res.render('projects', { title });
+});
+
+app.get('/categories', async (req, res) => {
+    const title = 'Service Project Categories';
+    res.render('categories', { title });
 });
 
 app.listen(PORT, () => {
