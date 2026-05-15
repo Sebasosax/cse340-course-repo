@@ -2,6 +2,7 @@ import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { testConnection } from './src/models/db.js';
+import { getAllOrganizations } from './src/models/organizations.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -21,8 +22,16 @@ app.get('/', async (req, res) => {
 });
 
 app.get('/organizations', async (req, res) => {
-    const title = 'Our Partner Organizations';
-    res.render('organizations', { title });
+    try {
+        const organizations = await getAllOrganizations();
+        console.log('Tipo:', typeof organizations);
+        console.log('Datos:', organizations);
+        const title = 'Our Partner Organizations';
+        res.render('organizations', { title, organizations });
+    } catch (error) {
+        console.error('Error en la ruta:', error);
+        res.send('Error: ' + error.message);
+    }
 });
 
 app.get('/projects', async (req, res) => {

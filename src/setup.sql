@@ -16,12 +16,12 @@ VALUES
   ('BrightFuture Builders',
    'A nonprofit focused on improving community infrastructure through sustainable construction projects.',
    'info@brightfuturebuilders.org',
-   'brightfuture-logo.png'),
+   'brightfuture-logo.webp'),
   ('GreenHarvest Growers',
    'An urban farming collective promoting food sustainability and education in local neighborhoods.',
    'contact@greenharvest.org',
-   'greenharvest-logo.png'),
+   'greenharvest-logo.webp'),
   ('UnityServe Volunteers',
    'A volunteer coordination group supporting local charities and service initiatives.',
    'hello@unityserve.org',
-   'unityserve-logo.png');
+   'unityserve-logo.webp');
