@@ -29,12 +29,15 @@ app.get('/organizations', async (req, res) => {
 });
 
 app.get('/projects', async (req, res) => {
-    const projects = await getAllProjects();
-    console.log(projects);
-    const title = 'Service Projects';
-    res.render('projects', { title });
+    try {
+        const projects = await getAllProjects();
+        const title = 'Service Projects';
+        res.render('projects', { title, projects });
+    } catch (error) {
+        console.error('Error getting projects:', error);
+        res.status(500).send('Error getting projects');
+    }
 });
-
 app.get('/categories', async (req, res) => {
     const title = 'Service Project Categories';
     res.render('categories', { title });
@@ -45,6 +48,8 @@ app.listen(PORT, async () => {
         await testConnection();
         console.log(`Server is running at http://127.0.0.1:${PORT}`);
         console.log(`Environment: ${NODE_ENV}`);
+        // Keep the process alive
+        await new Promise(() => {});
     } catch (error) {
         console.error('Error connecting to the database:', error);
     }
