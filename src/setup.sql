@@ -62,3 +62,37 @@ INSERT INTO public.service_project (organization_id, title, description, locatio
 (3, 'Clothing Drive', 'Collecting and distributing clothing to homeless shelters.', 'Ogden, UT', '2026-07-25'),
 (3, 'Literacy Program', 'Teaching reading and writing skills to adults in need.', 'Boise, ID', '2026-08-15'),
 (3, 'Animal Shelter Help', 'Helping care for animals at the local shelter.', 'Logan, UT', '2026-09-20');
+
+
+-- ========================================
+-- Categories
+-- ========================================
+
+-- Create categories table
+CREATE TABLE public.category (
+    category_id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+);
+
+-- Create junction table for projects and categories
+CREATE TABLE public.project_category (
+    project_id INT NOT NULL,
+    category_id INT NOT NULL,
+    PRIMARY KEY (project_id, category_id),
+    CONSTRAINT fk_project FOREIGN KEY (project_id) REFERENCES public.service_project(project_id),
+    CONSTRAINT fk_category FOREIGN KEY (category_id) REFERENCES public.category(category_id)
+);
+
+-- Insert categories
+INSERT INTO public.category (name) VALUES
+('Construction & Renovation'),
+('Environment & Sustainability'),
+('Food & Nutrition'),
+('Education & Literacy'),
+('Community Support');
+
+-- Associate projects with categories
+INSERT INTO public.project_category (project_id, category_id) VALUES
+(1, 1), (2, 1), (3, 1), (4, 1), (5, 1),
+(6, 2), (7, 2), (8, 3), (9, 3), (10, 3),
+(11, 5), (12, 5), (13, 5), (14, 4), (15, 5);
