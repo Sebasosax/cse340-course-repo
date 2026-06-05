@@ -1,0 +1,28 @@
+<%- include('partials/header') %>
+
+<main>
+    <h1><%= title %></h1>
+
+    <%- include('partials/messages') %>
+
+    <form action="/edit-category/<%= category.category_id %>" method="POST">
+
+        <div>
+            <label for="name">Category Name</label>
+            <input
+                type="text"
+                id="name"
+                name="name"
+                value="<%= category.name %>"
+                maxlength="100"
+                required
+            >
+        </div>
+
+        <button type="submit">Save Changes</button>
+    </form>
+
+    <a href="/category/<%= category.category_id %>">Cancel</a>
+</main>
+
+<%- include('partials/footer') %>

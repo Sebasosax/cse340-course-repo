@@ -9,7 +9,7 @@
 ======================== */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f3f0f7;
+    background-color: #eaf3f8;
     color: #333;
     min-height: 100vh;
     display: flex;
@@ -20,12 +20,12 @@ body {
    NAVIGATION
 ======================== */
 nav {
-    background: linear-gradient(135deg, #4a0080, #6a0dad);
+    background-color: #0f4c75;
     padding: 0.75rem 2rem;
     display: flex;
     align-items: center;
     gap: 1.5rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
 #logo {
@@ -45,7 +45,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    color: rgba(255, 255, 255, 0.9);
     text-decoration: none;
     font-weight: 500;
     font-size: 0.95rem;
@@ -57,7 +57,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255, 255, 255, 0.15);
     transform: translateY(-1px);
 }
 
@@ -70,7 +70,7 @@ main {
     padding: 2.5rem;
     background-color: #ffffff;
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(106,13,173,0.1);
+    box-shadow: 0 4px 20px rgba(15, 76, 117, 0.1);
     width: 100%;
 }
 
@@ -78,16 +78,16 @@ main {
    TYPOGRAPHY
 ======================== */
 h1 {
-    color: #4a0080;
+    color: #0f4c75;
     margin-bottom: 1.5rem;
     font-size: 2rem;
     font-weight: 700;
-    border-bottom: 3px solid #6a0dad;
+    border-bottom: 3px solid #1b9aaa;
     padding-bottom: 0.5rem;
 }
 
 h2 {
-    color: #6a0dad;
+    color: #1b9aaa;
     margin-bottom: 0.4rem;
     font-size: 1.2rem;
     font-weight: 600;
@@ -97,6 +97,20 @@ p {
     line-height: 1.7;
     color: #444;
     margin-bottom: 1rem;
+}
+
+/* ========================
+   LINKS
+======================== */
+a {
+    color: #1b9aaa;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: #0f4c75;
+    text-decoration: underline;
 }
 
 /* ========================
@@ -110,9 +124,9 @@ ul {
 ul li {
     padding: 0.75rem 1rem;
     margin-bottom: 0.5rem;
-    background-color: #f9f3ff;
-    border-left: 4px solid #6a0dad;
-    border-radius: 4px;
+    background-color: #f0f8ff;
+    border-left: 4px solid #1b9aaa;
+    border-radius: 0 4px 4px 0;
     font-weight: 500;
     color: #333;
 }
@@ -121,21 +135,21 @@ ul li {
    CARDS
 ======================== */
 div {
-    background-color: #fafafa;
+    background-color: #f8fbfd;
     border-radius: 12px;
     padding: 1.5rem;
     margin-bottom: 1.5rem;
     display: flex;
     align-items: center;
     gap: 1.5rem;
-    box-shadow: 0 2px 10px rgba(106,13,173,0.08);
-    border: 1px solid #e8d5f5;
+    box-shadow: 0 2px 8px rgba(15, 76, 117, 0.07);
+    border: 1px solid #c9e4f0;
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
 div:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(106,13,173,0.15);
+    box-shadow: 0 6px 18px rgba(15, 76, 117, 0.13);
 }
 
 /* ========================
@@ -147,7 +161,7 @@ img {
     object-fit: contain;
     border-radius: 8px;
     flex-shrink: 0;
-    border: 1px solid #e8d5f5;
+    border: 1px solid #c9e4f0;
     padding: 0.3rem;
     background: white;
 }
@@ -156,16 +170,15 @@ img {
    FOOTER
 ======================== */
 footer {
-    background: linear-gradient(135deg, #4a0080, #6a0dad);
-    color: rgba(255,255,255,0.85);
+    background-color: #0f4c75;
+    color:rgba(255, 255, 255, 0.9);
     text-align: center;
     padding: 1.2rem;
     font-size: 0.85rem;
-    font-weight: 500;
+    font-weight: 600;
     margin-top: auto;
     letter-spacing: 0.03em;
 }
-
 /* ========================
    FORMS
 ======================== */
@@ -173,11 +186,11 @@ form {
     display: flex;
     flex-direction: column;
     gap: 1.4rem;
-    background-color: #fafafa;
+    background-color: #f8fbfd;
     padding: 2rem;
     border-radius: 12px;
-    border: 1px solid #e8d5f5;
-    box-shadow: 0 2px 10px rgba(106,13,173,0.08);
+    border: 1px solid #c9e4f0;
+    box-shadow: 0 2px 8px rgba(15, 76, 117, 0.07);
 }
 
 .form-group {
@@ -199,7 +212,7 @@ form {
 
 label {
     font-weight: 600;
-    color: #4a0080;
+    color: #0f4c75;
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -209,7 +222,7 @@ input[type="text"],
 input[type="email"],
 textarea {
     padding: 0.65rem 1rem;
-    border: 1.5px solid #d0aef0;
+    border: 1.5px solid #b8d4e8;
     border-radius: 8px;
     font-size: 1rem;
     font-family: inherit;
@@ -223,8 +236,8 @@ input[type="text"]:focus,
 input[type="email"]:focus,
 textarea:focus {
     outline: none;
-    border-color: #6a0dad;
-    box-shadow: 0 0 0 3px rgba(106,13,173,0.1);
+    border-color: #1b9aaa;
+    box-shadow: 0 0 0 3px rgba(27, 154, 170, 0.12);
 }
 
 textarea {
@@ -233,7 +246,7 @@ textarea {
 }
 
 button[type="submit"] {
-    background: linear-gradient(135deg, #4a0080, #6a0dad);
+    background-color: #0f4c75;
     color: white;
     border: none;
     padding: 0.75rem 2rem;
@@ -241,13 +254,13 @@ button[type="submit"] {
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: opacity 0.2s, transform 0.1s;
+    transition: background-color 0.2s, transform 0.1s;
     align-self: flex-start;
     letter-spacing: 0.03em;
 }
 
 button[type="submit"]:hover {
-    opacity: 0.9;
+    background-color: #1b9aaa;
     transform: translateY(-1px);
 }
 
@@ -255,15 +268,20 @@ button[type="submit"]:hover {
    FLASH MESSAGES
 ======================== */
 .alert {
+    display: block;
+    border-radius: 8px;
     padding: 1rem 1.25rem;
     margin: 1rem 2rem;
-    border-radius: 8px;
     font-weight: 500;
     font-size: 0.95rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: none;
+    transform: none;
+}
+
+.alert:hover {
+    transform: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .alert.success {
@@ -288,6 +306,59 @@ button[type="submit"]:hover {
     color: #0c5460;
     background-color: #d1ecf1;
     border-left: 4px solid #17a2b8;
+}
+
+/* ========================
+   SELECT DROPDOWN
+======================== */
+select {
+    padding: 0.65rem 1rem;
+    border: 1.5px solid #b8d4e8;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    background-color: #ffffff;
+    color: #333;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    width: 100%;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%231b9aaa' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+}
+
+select:focus {
+    outline: none;
+    border-color: #1b9aaa;
+    box-shadow: 0 0 0 3px rgba(27, 154, 170, 0.12);
+}
+
+/* ========================
+   DATE INPUT
+======================== */
+input[type="date"] {
+    padding: 0.65rem 1rem;
+    border: 1.5px solid #b8d4e8;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    background-color: #ffffff;
+    color: #333;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    width: 100%;
+    cursor: pointer;
+}
+
+input[type="date"]:focus {
+    outline: none;
+    border-color: #1b9aaa;
+    box-shadow: 0 0 0 3px rgba(27, 154, 170, 0.12);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    filter: invert(40%) sepia(80%) saturate(400%) hue-rotate(160deg);
 }
 
 /* ========================
@@ -321,98 +392,4 @@ button[type="submit"]:hover {
     .alert {
         margin: 1rem;
     }
-}
-
-/* Fix alert styles overridden by div selector */
-.alert {
-    display: block;
-    background-color: initial;
-    border-radius: 8px;
-    padding: 1rem 1.25rem;
-    margin: 1rem 2rem;
-    font-weight: 500;
-    font-size: 0.95rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    border: none;
-    transform: none;
-}
-
-.alert:hover {
-    transform: none;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-}
-
-.alert.success {
-    color: #155724;
-    background-color: #d4edda;
-    border-left: 4px solid #28a745;
-}
-
-.alert.error {
-    color: #721c24;
-    background-color: #f8d7da;
-    border-left: 4px solid #dc3545;
-}
-
-.alert.warning {
-    color: #856404;
-    background-color: #fff3cd;
-    border-left: 4px solid #ffc107;
-}
-
-.alert.info {
-    color: #0c5460;
-    background-color: #d1ecf1;
-    border-left: 4px solid #17a2b8;
-}
-/* ========================
-   SELECT DROPDOWN
-======================== */
-select {
-    padding: 0.65rem 1rem;
-    border: 1.5px solid #d0aef0;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-family: inherit;
-    background-color: #ffffff;
-    color: #333;
-    transition: border-color 0.2s, box-shadow 0.2s;
-    width: 100%;
-    cursor: pointer;
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236a0dad' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 1rem center;
-}
-
-select:focus {
-    outline: none;
-    border-color: #6a0dad;
-    box-shadow: 0 0 0 3px rgba(106,13,173,0.1);
-}
-/* ========================
-   DATE INPUT
-======================== */
-input[type="date"] {
-    padding: 0.65rem 1rem;
-    border: 1.5px solid #d0aef0;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-family: inherit;
-    background-color: #ffffff;
-    color: #333;
-    transition: border-color 0.2s, box-shadow 0.2s;
-    width: 100%;
-    cursor: pointer;
-}
-
-input[type="date"]:focus {
-    outline: none;
-    border-color: #6a0dad;
-    box-shadow: 0 0 0 3px rgba(106,13,173,0.1);
-}
-
-input[type="date"]::-webkit-calendar-picker-indicator {
-    cursor: pointer;
-    filter: invert(20%) sepia(80%) saturate(500%) hue-rotate(250deg);
 }

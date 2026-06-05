@@ -15,13 +15,20 @@ import {
     showProjectDetailsPage,
     showNewProjectForm,
     processNewProjectForm,
+    showEditProjectForm,
+    processEditProjectForm,
     projectValidation
 } from './controllers/projects.js';
 import {
     showCategoriesPage,
     showCategoryDetailsPage,
     showAssignCategoriesForm,
-    processAssignCategoriesForm
+    processAssignCategoriesForm,
+    showNewCategoryForm,
+    processNewCategoryForm,
+    showEditCategoryForm,
+    processEditCategoryForm,
+    categoryValidation
 } from './controllers/categories.js';
 import { testErrorPage } from './controllers/errors.js';
 
@@ -50,6 +57,24 @@ router.get('/new-project', showNewProjectForm);
 
 // Route to handle new project form submission
 router.post('/new-project', projectValidation, processNewProjectForm);
+
+// Route for edit project page
+router.get('/edit-project/:id', showEditProjectForm);
+
+// Route to handle edit project form submission
+router.post('/edit-project/:id', projectValidation, processEditProjectForm);
+
+// Route for new category page
+router.get('/new-category', showNewCategoryForm);
+
+// Route to handle new category form submission
+router.post('/new-category', categoryValidation, processNewCategoryForm);
+
+// Route for edit category page
+router.get('/edit-category/:id', showEditCategoryForm);
+
+// Route to handle edit category form submission
+router.post('/edit-category/:id', categoryValidation, processEditCategoryForm);
 
 // Route for organization details page
 router.get('/organization/:id', showOrganizationDetailsPage);
