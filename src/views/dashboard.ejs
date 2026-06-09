@@ -4,6 +4,11 @@
     <h1>Dashboard</h1>
     <p>Welcome, <%= name %>!</p>
     <p>Email: <%= email %></p>
+
+    <% if (user && user.role_name === 'admin') { %>
+        <p><a href="/users">View All Users</a></p>
+    <% } %>
+
 </main>
 
 <%- include('partials/footer') %>

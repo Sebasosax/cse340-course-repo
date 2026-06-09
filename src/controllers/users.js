@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-import { createUser, authenticateUser } from '../models/users.js';
+import { createUser, authenticateUser, getAllUsers } from '../models/users.js';
 
 const saltRounds = 10;
 
@@ -46,9 +46,9 @@ export async function processLoginForm(req, res) {
 }
 
 export async function processLogout(req, res) {
-    req.session.destroy();
-    req.flash('success', 'You have been logged out.');
-    res.redirect('/login');
+    req.session.destroy(() => {
+        res.redirect('/login');
+    });
 }
 
 export function requireLogin(req, res, next) {
@@ -63,6 +63,7 @@ export async function showDashboard(req, res) {
     const { name, email } = req.session.user;
     res.render('dashboard', { title: 'Dashboard', name, email });
 }
+
 export function requireRole(role) {
     return function (req, res, next) {
         if (req.session.user && req.session.user.role_name === role) {
@@ -71,4 +72,9 @@ export function requireRole(role) {
         req.flash('error', 'You do not have permission to access that page.');
         res.redirect('/');
     };
+}
+
+export async function showUsersPage(req, res) {
+    const users = await getAllUsers();
+    res.render('users', { title: 'Users', users });
 }
