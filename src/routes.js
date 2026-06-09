@@ -31,6 +31,15 @@ import {
     categoryValidation
 } from './controllers/categories.js';
 import { testErrorPage } from './controllers/errors.js';
+import {
+    showUserRegistrationForm,
+    processUserRegistrationForm,
+    showLoginForm,
+    processLoginForm,
+    processLogout,
+    requireLogin,
+    showDashboard
+} from './controllers/users.js';
 
 const router = express.Router();
 
@@ -39,6 +48,18 @@ router.get('/', showHomePage);
 router.get('/organizations', showOrganizationsPage);
 router.get('/projects', showProjectsPage);
 router.get('/categories', showCategoriesPage);
+
+// Registration routes
+router.get('/register', showUserRegistrationForm);
+router.post('/register', processUserRegistrationForm);
+
+// Login routes
+router.get('/login', showLoginForm);
+router.post('/login', processLoginForm);
+router.get('/logout', processLogout);
+
+// Protected dashboard route
+router.get('/dashboard', requireLogin, showDashboard);
 
 // Route for new organization page
 router.get('/new-organization', showNewOrganizationForm);
