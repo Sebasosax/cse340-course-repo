@@ -122,3 +122,14 @@ CREATE TABLE users (
     role_id INTEGER REFERENCES roles(role_id),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+-- ========================================
+-- Project Volunteers
+-- ========================================
+CREATE TABLE public.project_volunteer (
+    user_id INT NOT NULL,
+    project_id INT NOT NULL,
+    PRIMARY KEY (user_id, project_id),
+    CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES public.users(user_id),
+    CONSTRAINT fk_project FOREIGN KEY (project_id) REFERENCES public.service_project(project_id)
+);

@@ -61,7 +61,9 @@ export function requireLogin(req, res, next) {
 
 export async function showDashboard(req, res) {
     const { name, email } = req.session.user;
-    res.render('dashboard', { title: 'Dashboard', name, email });
+    const { getVolunteerProjects } = await import('../models/volunteers.js');
+    const volunteerProjects = await getVolunteerProjects(req.session.user.user_id);
+    res.render('dashboard', { title: 'Dashboard', name, email, volunteerProjects });
 }
 
 export function requireRole(role) {

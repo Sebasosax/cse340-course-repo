@@ -50,9 +50,15 @@ const showProjectDetailsPage = async (req, res) => {
     const project = await getProjectDetails(id);
     const categories = await getCategoriesByProjectId(id);
     const title = project.title;
-    res.render('project', { title, project, categories });
-};
 
+    let volunteering = false;
+    if (req.session.user) {
+        const { isVolunteer } = await import('../models/volunteers.js');
+        volunteering = await isVolunteer(req.session.user.user_id, id);
+    }
+
+    res.render('project', { title, project, categories, volunteering });
+};
 const showNewProjectForm = async (req, res) => {
     const organizations = await getAllOrganizations();
     const title = 'Add New Service Project';

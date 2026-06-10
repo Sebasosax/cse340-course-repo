@@ -42,6 +42,10 @@ import {
     requireRole,
     showUsersPage
 } from './controllers/users.js';
+import {
+    processAddVolunteer,
+    processRemoveVolunteer
+} from './controllers/volunteers.js';
 
 const router = express.Router();
 
@@ -65,6 +69,10 @@ router.get('/dashboard', requireLogin, showDashboard);
 
 // Admin users page
 router.get('/users', requireRole('admin'), showUsersPage);
+
+// Volunteer routes
+router.post('/project/:projectId/volunteer', requireLogin, processAddVolunteer);
+router.post('/project/:projectId/unvolunteer', requireLogin, processRemoveVolunteer);
 
 // Route for new organization page
 router.get('/new-organization', requireRole('admin'), showNewOrganizationForm);
